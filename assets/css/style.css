@@ -7,16 +7,16 @@
   --yellow: #f0ed00;
   --gold: #bf9b53;
   --wine: #630021;
-  --accent: #ad1230;
-  --red: #e60028;
+  --accent: #806018;
+  --red: #99731f;
   --cream: #f4f4f1;
   --line: #dedede;
   --white: #fff;
   --radius: 4px;
   /* Shared materials: warm metal, layered carbon and a restrained wine accent. */
-  --metal: linear-gradient(115deg, #f0dc8d 0%, #ddbc55 42%, #be9544 100%);
-  --carbon: linear-gradient(135deg, #30302e 0%, #1d1e20 48%, #101113 100%);
-  --wine-surface: linear-gradient(125deg, #421c29 0%, #28151e 55%, #141316 100%);
+  --metal: linear-gradient(115deg, #f0d68a 0%, #d1a539 42%, #b58729 100%);
+  --carbon: linear-gradient(135deg, #262521 0%, #171716 48%, #090a0a 100%);
+  --wine-surface: linear-gradient(125deg, #30291b 0%, #1c1b17 55%, #0d0e0e 100%);
   --light-surface: linear-gradient(140deg, #fff 15%, #f0eee8 100%);
   --metal-light: #e4ca83;
   --metal-edge: #b69a5e;
@@ -412,6 +412,21 @@ body { background: #faf9f6; }
 .trial-actions .button-outline { color: #eee6d3; border-color: #b9a57970; background: #ffffff04; }
 .site-footer { background: linear-gradient(130deg, #111214, #1b1a18); border-top: 1px solid #b69a5e40; }
 
+/* Uniform identity: original black/gold brush artwork, with calm reading surfaces. */
+:root { --uniform-art: url('../images/uniform-black-gold.png'); }
+.hero { background: linear-gradient(90deg, #090a0af5 0%, #090a0adc 34%, #090a0a60 70%), var(--uniform-art) center / cover; }
+.hero::before, .hero::after { display: none; }
+.hero h1 em { background-image: linear-gradient(110deg, #f5dfa0, #d6aa42 58%, #bc902f); }
+.statement-strip { background: linear-gradient(90deg, #090a0ad9, #090a0aeb 50%, #090a0abf), var(--uniform-art) center / cover; }
+.quick-link:last-child, .category-plus, .category-girls { border-color: var(--metal-edge); }
+.reason-grid article:nth-child(3) { border-top-color: var(--metal-edge); }
+.reasons, .activities { background: radial-gradient(ellipse at 100% 0, #ac812b1c, transparent 55%), var(--carbon); }
+.voice { background: linear-gradient(100deg, #090a0af0, #090a0ade), var(--uniform-art) center / cover; border-top-color: var(--metal-edge); }
+.voice-card { background: linear-gradient(135deg, #272620f5, #121312fa); }
+.trial { background: linear-gradient(90deg, #090a0af5 5%, #090a0ad9 55%, #090a0a80), var(--uniform-art) center / cover; }
+.results-list .result-feature { background: linear-gradient(120deg, #090a0af5 20%, #090a0ac9), var(--uniform-art) center / cover; }
+.instagram-visual { box-shadow: 8px 8px 0 #c5a45d; }
+
 /* Tablet: retain generous targets without growing the page */
 @media (max-width: 1100px) {
   .global-nav { gap: 11px; }
@@ -558,6 +573,35 @@ body { background: #faf9f6; }
   .footer-main { display: block; }
   .footer-contact { margin-top: 24px; }
   .mobile-trial { position: fixed; z-index: 40; bottom: 10px; bottom: calc(10px + env(safe-area-inset-bottom, 0px)); left: 12px; right: 12px; display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 52px; padding: 12px 20px; border: 1px solid var(--metal-edge); border-radius: 4px; background: var(--carbon); color: #f0dfb0; box-shadow: 0 5px 20px #17171735; font-size: 12px; font-weight: 800; }
+}
+/* Separate activity locations from the communities players come from. */
+.area-panel { padding-block: 32px; }
+.area-layout { display: grid; grid-template-columns: minmax(210px, .75fr) minmax(0, 2fr); gap: 36px; align-items: center; }
+.area-heading h2 { font-size: 23px; line-height: 1.5; margin: 0 0 8px; letter-spacing: -.03em; }
+.area-heading .eyebrow { margin-bottom: 7px; }
+.area-label { font-size: 11px; letter-spacing: .06em; }
+.area-content > p { margin: 0 0 14px; font-size: 14px; }
+.area-chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.area-chips li { padding: 6px 16px; font-size: 14px; font-weight: 700; white-space: nowrap; border-radius: 3px; }
+.activity-area { color: #fff; background: radial-gradient(ellipse at 100% 0, #bf9b5320, transparent 65%), var(--carbon); border-top: 2px solid var(--metal-edge); }
+.activity-area .area-heading { border-left: 3px solid var(--metal-edge); padding-left: 20px; }
+.activity-area .eyebrow, .activity-area .area-label { color: var(--metal-light); }
+.activity-area .area-chips li { color: #f2e2b8; background: linear-gradient(120deg, #bf9b5325, #bf9b530a); border: 1px solid #bf9b5355; }
+.area-guide { display: inline-flex; gap: 16px; margin-top: 14px; color: var(--metal-light); font-size: 12px; text-decoration: underline; text-underline-offset: 5px; }
+.activity-area :focus-visible { outline-color: var(--metal-light); }
+.players-area { background: var(--light-surface); border-top: 1px solid var(--line); }
+.players-area .area-label { color: var(--muted); }
+.players-area .area-chips li { background: #fff; border: 1px solid #ded8cc; color: #38332c; }
+.area-content .area-note { margin: 10px 0 0; font-size: 11px; color: var(--muted); }
+.instagram-link-label { display: inline-flex; align-items: center; gap: 12px; }
+.instagram-icon { width: 24px; height: 24px; flex: 0 0 24px; object-fit: contain; }
+@media (max-width: 600px) {
+  .area-panel { padding-block: 25px; }
+  .area-layout { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .area-heading h2 { font-size: 22px; }
+  .area-content > p { font-size: 13px; line-height: 1.9; }
+  .area-chips { gap: 8px; }
+  .area-chips li { padding: 6px 12px; font-size: 13px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
