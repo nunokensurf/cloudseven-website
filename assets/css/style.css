@@ -639,6 +639,25 @@ footer[id] {
   border-radius: 4px;
 }
 
+.club-art-images {
+  display: flex;
+  gap: 10px;
+  width: 72%;
+  height: 200px;
+}
+
+.club-art-images img {
+  width: 50%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.club-art figcaption {
+  flex: 1;
+}
+
 .club-art figcaption {
   font-size: 15px;
   font-weight: 800;
