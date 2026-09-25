@@ -37,6 +37,7 @@ let heroPaused = reducedMotion.matches;
 let galleryPaused = reducedMotion.matches;
 
 function updateMotionButton(button, paused, name) {
+  if (!button) return;
   button.textContent = paused ? '自動再生' : '一時停止';
   button.setAttribute('aria-pressed', String(paused));
   button.setAttribute('aria-label', `${name}の自動${paused ? '再生を開始' : '再生を停止'}`);
@@ -51,16 +52,17 @@ heroDots.forEach(dot => dot.addEventListener('click', () => {
   heroPaused = true;
   updateMotionButton(heroMotion, heroPaused, 'メイン写真');
 }));
-heroMotion.addEventListener('click', () => {
+heroMotion?.addEventListener('click', () => {
   heroPaused = !heroPaused;
   updateMotionButton(heroMotion, heroPaused, 'メイン写真');
 });
 window.setInterval(() => {
-  if (!heroPaused && !document.hidden) showSlide(activeSlide + 1);
+  if (heroSlides.length && !heroPaused && !document.hidden) showSlide(activeSlide + 1);
 }, 6000);
 
 /* Photo journal: touch, keyboard, previous / next and optional auto advance. */
 const galleryTrack = document.querySelector('#gallery-track');
+if (galleryTrack) {
 const galleryItems = [...galleryTrack.querySelectorAll('.gallery-item')];
 let galleryHovered = false;
 let galleryFocused = false;
@@ -101,6 +103,8 @@ new IntersectionObserver(entries => {
 window.setInterval(() => {
   if (!galleryPaused && !galleryHovered && !galleryFocused && galleryVisible && !document.hidden && Date.now() > galleryTouchUntil) moveGallery(1);
 }, 4500);
+
+}
 
 function syncMotionPreferences() {
   if (reducedMotion.matches) {
