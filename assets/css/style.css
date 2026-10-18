@@ -3279,3 +3279,28 @@ body {
 .gallery-item.gallery-portrait img { object-fit:contain; }
 .gallery-item.gallery-portrait figcaption { left:10px; right:8px; font-size:9px; }
 @media(max-width:600px) { .gallery-item.gallery-portrait { flex-basis:124px; } }
+
+/* Recent club news: optional photographs, compact even without an image. */
+.topics-section { padding:34px 0; background:linear-gradient(120deg,#faf9f5,#eeeae0); border-bottom:1px solid #d8cfbc; scroll-margin-top:100px; }
+.topics-layout { display:grid; grid-template-columns:220px minmax(0,1fr); gap:32px; align-items:start; }
+.topics-heading .eyebrow { margin:0 0 8px; }
+.topics-heading h2 { font-size:25px; margin:0 0 10px; }
+.topics-heading > p:last-child { color:#666056; font-size:12px; margin:0; }
+.topics-list { display:grid; gap:16px; min-width:0; }
+.topic-card { padding:22px 26px; background:#fff; border-left:3px solid var(--metal-edge); box-shadow:0 5px 20px #251d0e08; }
+.topic-tag { display:inline-block; font-size:11px; font-weight:700; color:#72551c; background:#f4efdf; padding:3px 10px; }
+.topic-card h3 { margin:10px 0; font-size:20px; line-height:1.6; }
+.topic-copy p { margin:8px 0; font-size:14px; line-height:1.9; }
+.topic-link { display:inline-flex; gap:20px; align-items:center; margin-top:10px; font-size:13px; font-weight:700; color:#715016; border-bottom:1px solid #b69a5e; padding-bottom:5px; }
+.topic-link:hover { color:#171717; }
+.topic-link:focus-visible { outline:2px solid #715016; outline-offset:5px; }
+.topic-photo { margin:18px 0 0; }
+.topic-photo img { display:block; max-width:100%; width:auto; max-height:300px; height:auto; object-fit:contain; border-radius:3px; }
+@media(max-width:700px) {
+ .topics-section { padding:26px 0; }
+ .topics-layout { grid-template-columns:minmax(0,1fr); gap:18px; }
+ .topics-heading h2 { font-size:22px; }
+ .topic-card { padding:18px; }
+ .topic-card h3 { font-size:18px; }
+ .topic-photo img { max-height:240px; }
+}
